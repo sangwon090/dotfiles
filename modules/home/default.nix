@@ -9,7 +9,6 @@
   };
 
   imports = [
-    ./shell.nix
-    ./dev
+    ./shell
   ];
 }
