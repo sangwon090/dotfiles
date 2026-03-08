@@ -1,5 +1,9 @@
 { ... }:
 {
+  environment.loginShellInit = ''
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  '';
+
   homebrew = {
     enable = true;
     
