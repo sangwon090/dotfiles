@@ -15,5 +15,6 @@
 
   programs.fish.shellAliases = {
     mamba = "micromamba";
+    python = "python3";
   };
 }
