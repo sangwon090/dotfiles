@@ -10,5 +10,6 @@
 
   imports = [
     ./shell.nix
+    ./dev
   ];
 }
