@@ -13,4 +13,8 @@
   };
 
   programs.tmux.enable = true;
+
+  imports = [
+    ./vim.nix
+  ];
 }
