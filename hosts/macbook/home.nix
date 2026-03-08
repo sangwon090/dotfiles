@@ -6,6 +6,8 @@
 
   imports = [
     ../../modules/home
+    ../../modules/home/dev
+    ../../modules/home/llm
   ];
 
   programs.home-manager.enable = true;

@@ -11,7 +11,7 @@
     fish
   ];
 
-  users.users.sangwon = {
+  users.users.${username} = {
     home = "/Users/${username}";
     shell = pkgs.fish;
   };

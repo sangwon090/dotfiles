@@ -32,30 +32,35 @@
           homeDirectory = "/home/${username}";
         };
       };
+
+    mkDarwin = { username }:
+      nix-darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        pkgs = mkPkgs "aarch64-darwin";
+
+        modules = [
+          ./hosts/macbook
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.extraSpecialArgs = {
+              inherit username;
+              homeDirectory = "/Users/${username}";
+            };
+
+            home-manager.users.${username} = import ./hosts/macbook/home.nix;
+          }
+        ];
+
+        specialArgs = {
+          inherit username;
+          homeDirectory = "/Users/${username}";
+        };
+      };
   in
   {
     # macbook
-    darwinConfigurations.macbook = nix-darwin.lib.darwinSystem {
-      system = "aarch64-darwin";
-      pkgs = mkPkgs "aarch64-darwin";
-
-      modules = [
-        ./hosts/macbook
-        home-manager.darwinModules.home-manager
-        {
-          home-manager.extraSpecialArgs = {
-            username = "sangwon";
-            homeDirectory = "/Users/sangwon";
-          };
-
-          home-manager.users.sangwon = import ./hosts/macbook/home.nix;
-        }
-      ];
-
-      specialArgs = {
-        username = "sangwon";
-        homeDirectory = "/Users/sangwon";
-      };
+    darwinConfigurations.macbook = mkDarwin {
+      username = "sangwon";
     };
 
     homeConfigurations = {
@@ -65,7 +70,7 @@
         pkgs = mkPkgs "x86_64-linux";
 
         modules = [
-          ./host/desktop/home.nix
+          ./hosts/desktop/home.nix
         ];
 
         extraSpecialArgs = {
