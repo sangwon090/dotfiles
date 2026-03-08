@@ -8,7 +8,9 @@
     llvmPackages.clang-tools
     llvmPackages.lldb
     llvmPackages.llvm
+    llvmPackages.llvm.dev
     llvmPackages.mlir
+    llvmPackages.mlir.dev
   ] ++ lib.optionals(!pkgs.stdenv.isDarwin) [
     gcc
     gdb
