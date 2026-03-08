@@ -1,7 +1,7 @@
 { ... }:
 {
   imports = [
-    ./container.nix
+    ./containers.nix
     ./cpp.nix
     ./js.nix
     ./python.nix
