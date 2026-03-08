@@ -14,10 +14,13 @@
 
     casks = [
       "bitwarden"
+      "burp-suite"
       "discord"
       "google-chrome"
+      "postman"
       "tailscale-app"
       "visual-studio-code" 
+      "wireshark-app"
     ];
 
     masApps = {

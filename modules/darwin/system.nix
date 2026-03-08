@@ -69,6 +69,9 @@
         { app = "/System/Applications/Utilities/Terminal.app"; }
         { app = "/System/Applications/System Settings.app"; }
       ];
+      persistent-others = [
+        { folder = "/Applications/Security/"; }
+      ];
     };
 
     finder = {
