@@ -5,6 +5,7 @@
     settings = {
       user.name = "Sangwon Ryu";
       user.email = "me@sryu.dev";
+      init.defaultBranch = "main";
     };
   };
 
