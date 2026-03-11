@@ -61,6 +61,7 @@
         { app = "/System/Applications/Apps.app"; }
         { app = "/Applications/Google Chrome.app"; }
         { app = "/Applications/Visual Studio Code.app"; }
+        { app = "/Applications/Slack.app"; }
         { app = "/Applications/KakaoTalk.app"; }
         { app = "/Applications/Discord.app"; }
         { app = "/System/Applications/Mail.app"; }

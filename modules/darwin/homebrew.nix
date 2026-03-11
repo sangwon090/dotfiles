@@ -18,6 +18,7 @@
       "discord"
       "google-chrome"
       "postman"
+      "slack"
       "tailscale-app"
       "visual-studio-code" 
       "wireshark-app"
