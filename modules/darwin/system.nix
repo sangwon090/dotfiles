@@ -87,6 +87,7 @@
 
     NSGlobalDomain = {
       AppleInterfaceStyleSwitchesAutomatically = true;
+      ApplePressAndHoldEnabled = false;
       NSAutomaticDashSubstitutionEnabled = false;
       NSAutomaticPeriodSubstitutionEnabled = false;
       NSAutomaticQuoteSubstitutionEnabled = false;
