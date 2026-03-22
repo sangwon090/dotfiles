@@ -10,16 +10,20 @@
     brews = [
       "binwalk"
       "ghidra"
+      "cirruslabs/cli/tart"
     ];
 
     casks = [
       "bitwarden"
       "burp-suite"
       "discord"
+      "firefox"
       "google-chrome"
+      "moonlight"
       "postman"
       "slack"
       "tailscale-app"
+      "ungoogled-chromium"
       "visual-studio-code" 
       "wireshark-app"
     ];

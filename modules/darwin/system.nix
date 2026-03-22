@@ -59,7 +59,8 @@
       tilesize = 48;
       persistent-apps = [
         { app = "/System/Applications/Apps.app"; }
-        { app = "/Applications/Google Chrome.app"; }
+        { app = "/Applications/Firefox.app"; }
+        { app = "/Applications/Chromium.app"; }
         { app = "/Applications/Visual Studio Code.app"; }
         { app = "/Applications/Slack.app"; }
         { app = "/Applications/KakaoTalk.app"; }
