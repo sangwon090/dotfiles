@@ -69,6 +69,7 @@
         { app = "/System/Applications/Notes.app"; }
         { app = "/System/Applications/Music.app"; }
         { app = "/System/Applications/Utilities/Terminal.app"; }
+        { app = "/Applications/Bitwarden.app"; }
         { app = "/System/Applications/System Settings.app"; }
       ];
       persistent-others = [

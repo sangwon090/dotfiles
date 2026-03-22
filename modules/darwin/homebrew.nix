@@ -14,7 +14,6 @@
     ];
 
     casks = [
-      "bitwarden"
       "burp-suite"
       "discord"
       "firefox"
@@ -30,6 +29,7 @@
 
     masApps = {
       "KakaoTalk" = 869223134;
+      "Bitwarden" = 1352778147;
     };
 
     onActivation = {
