@@ -68,6 +68,9 @@
         { app = "/System/Applications/Mail.app"; }
         { app = "/System/Applications/Notes.app"; }
         { app = "/System/Applications/Music.app"; }
+        { app = "/Applications/Microsoft Word.app"; }
+        { app = "/Applications/Microsoft Excel.app"; }
+        { app = "/Applications/Microsoft PowerPoint.app"; }
         { app = "/System/Applications/Utilities/Terminal.app"; }
         { app = "/Applications/Bitwarden.app"; }
         { app = "/System/Applications/System Settings.app"; }

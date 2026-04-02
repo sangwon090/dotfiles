@@ -15,9 +15,13 @@
 
     casks = [
       "burp-suite"
+      "claude-code"
       "discord"
       "firefox"
       "google-chrome"
+      "microsoft-excel"
+      "microsoft-powerpoint"
+      "microsoft-word"
       "moonlight"
       "postman"
       "slack"
