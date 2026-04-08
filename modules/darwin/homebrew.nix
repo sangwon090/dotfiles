@@ -9,8 +9,9 @@
     
     brews = [
       "binwalk"
-      "ghidra"
       "cirruslabs/cli/tart"
+      "ghidra"
+      "ykman"
     ];
 
     casks = [
