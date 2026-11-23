@@ -1,9 +1,10 @@
-{ pkgs, username, ... }:
+{ lib, pkgs, username, ... }:
 {
   nix.enable = false; # for determinate nix
   system.stateVersion = 4;
 
   imports = [
+    ./fonts.nix
     ./homebrew.nix
   ];
 
@@ -14,17 +15,6 @@
   users.users.${username} = {
     home = "/Users/${username}";
     shell = pkgs.fish;
-  };
-
-  fonts = {
-    packages = with pkgs; [
-      noto-fonts
-      noto-fonts-cjk-sans
-      noto-fonts-cjk-serif
-      nerd-fonts.fira-code
-      pretendard
-      d2coding
-    ];
   };
 
   networking = {
@@ -57,32 +47,22 @@
       autohide = false;
       show-recents = false;
       tilesize = 48;
-      persistent-apps = [
-        { app = "/System/Applications/Apps.app"; }
-        { app = "/Applications/Firefox.app"; }
-        { app = "/Applications/Chromium.app"; }
-        { app = "/Applications/Visual Studio Code.app"; }
-        { app = "/Applications/Slack.app"; }
-        { app = "/Applications/KakaoTalk.app"; }
-        { app = "/Applications/Discord.app"; }
-        { app = "/System/Applications/Mail.app"; }
-        { app = "/System/Applications/Notes.app"; }
-        { app = "/System/Applications/Music.app"; }
-        { app = "/Applications/Microsoft Word.app"; }
-        { app = "/Applications/Microsoft Excel.app"; }
-        { app = "/Applications/Microsoft PowerPoint.app"; }
-        { app = "/System/Applications/Utilities/Terminal.app"; }
-        { app = "/Applications/Bitwarden.app"; }
-        { app = "/System/Applications/System Settings.app"; }
-      ];
       persistent-others = [
-        { folder = "/Applications/Security/"; }
+        {
+          folder = {
+            path = "/Users/${username}/Downloads";
+            arrangement = "date-added";
+            displayas = "stack";
+            showas = "fan";
+          };
+        }
       ];
     };
 
     finder = {
       AppleShowAllExtensions = true;
       AppleShowAllFiles = true;
+      FXPreferredViewStyle = "Nlsv";
       ShowPathbar = true;
     };
 
@@ -99,4 +79,47 @@
       NSAutomaticSpellingCorrectionEnabled = false;
     };
   };
+
+  # Apply pins after Homebrew, when newly installed apps are available.
+  system.activationScripts.postActivation.text = let
+    dockApps = [
+      "/System/Applications/Apps.app"
+      "/Applications/Firefox.app"
+      "/Applications/Chromium.app"
+      "/Applications/KakaoTalk.app"
+      "/Applications/Visual Studio Code.app"
+      "/Applications/Slack.app"
+      "/Applications/Discord.app"
+      "/System/Applications/Messages.app"
+      "/System/Applications/Notes.app"
+      "/System/Applications/Mail.app"
+      "/System/Applications/Music.app"
+      "/Applications/Microsoft Word.app"
+      "/Applications/Microsoft Excel.app"
+      "/Applications/Microsoft PowerPoint.app"
+      "/Applications/Ghostty.app"
+      "/Applications/Bitwarden.app"
+      "/System/Applications/iPhone Mirroring.app"
+      "/System/Applications/System Settings.app"
+      "/Applications/IDA Professional 9.4.app"
+      "/Applications/Binary Ninja.app"
+    ];
+    dockTile = app: lib.generators.toPlist { escape = true; } {
+      tile-data.file-data = {
+        _CFURLString = app;
+        _CFURLStringType = 0;
+      };
+    };
+    user = lib.escapeShellArg username;
+  in ''
+    dockAppTiles=()
+    ${lib.concatMapStrings (app: ''
+      if [[ -d ${lib.escapeShellArg app} ]]; then
+        dockAppTiles+=(${lib.escapeShellArg (dockTile app)})
+      fi
+    '') dockApps}
+    launchctl asuser "$(id -u -- ${user})" sudo --user=${user} -- \
+      defaults write com.apple.dock persistent-apps -array "''${dockAppTiles[@]}"
+    killall -qu ${user} Dock || true
+  '';
 }

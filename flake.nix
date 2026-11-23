@@ -16,7 +16,14 @@
     mkPkgs = system:
       import nixpkgs {
         inherit system;
-        config.allowUnfree = true;
+        config = {
+          allowUnfree = true;
+        } // nixpkgs.lib.optionalAttrs (system == "aarch64-darwin") {
+          vim = {
+            gui = "none";
+            darwin = true;
+          };
+        };
       };
 
     mkLinuxServer = { system, username }:
@@ -42,6 +49,8 @@
           ./hosts/macbook
           home-manager.darwinModules.home-manager
           {
+            home-manager.useGlobalPkgs = true;
+
             home-manager.extraSpecialArgs = {
               inherit username;
               homeDirectory = "/Users/${username}";
