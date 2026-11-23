@@ -1,0 +1,63 @@
+theme = GitHub Dark
+background = #24292e
+foreground = #d1d5da
+palette = 0=#586069
+palette = 1=#ea4a5a
+palette = 2=#34d058
+palette = 3=#ffea7f
+palette = 4=#2188ff
+palette = 5=#b392f0
+palette = 6=#39c5cf
+palette = 7=#d1d5da
+palette = 8=#959da5
+palette = 9=#f97583
+palette = 10=#85e89d
+palette = 11=#ffea7f
+palette = 12=#79b8ff
+palette = 13=#b392f0
+palette = 14=#56d4dd
+palette = 15=#fafbfc
+palette = 16=#d18616
+palette = 17=#f97583
+font-family = FiraCode Nerd Font Mono
+# Explicit Korean fallback; prevents macOS from selecting a proportional or serif fallback.
+font-family = D2Coding
+font-size = 15
+window-width = 150
+window-height = 40
+window-save-state = never
+background-opacity = 0.95
+background-blur = true
+macos-option-as-alt = true
+window-padding-x = 6
+window-padding-y = 6
+scrollback-limit = 10000000
+
+# Keep Ctrl+letter terminal shortcuts working regardless of the active IME.
+# Physical key names avoid the macOS Korean input method translating letters.
+keybind = ctrl+key_a=text:\x01
+keybind = ctrl+key_b=text:\x02
+keybind = ctrl+key_c=text:\x03
+keybind = ctrl+key_d=text:\x04
+keybind = ctrl+key_e=text:\x05
+keybind = ctrl+key_f=text:\x06
+keybind = ctrl+key_g=text:\x07
+keybind = ctrl+key_h=text:\x08
+keybind = ctrl+key_i=text:\x09
+keybind = ctrl+key_j=text:\x0a
+keybind = ctrl+key_k=text:\x0b
+keybind = ctrl+key_l=text:\x0c
+keybind = ctrl+key_m=text:\x0d
+keybind = ctrl+key_n=text:\x0e
+keybind = ctrl+key_o=text:\x0f
+keybind = ctrl+key_p=text:\x10
+keybind = ctrl+key_q=text:\x11
+keybind = ctrl+key_r=text:\x12
+keybind = ctrl+key_s=text:\x13
+keybind = ctrl+key_t=text:\x14
+keybind = ctrl+key_u=text:\x15
+keybind = ctrl+key_v=text:\x16
+keybind = ctrl+key_w=text:\x17
+keybind = ctrl+key_x=text:\x18
+keybind = ctrl+key_y=text:\x19
+keybind = ctrl+key_z=text:\x1a

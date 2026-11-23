@@ -16,6 +16,8 @@ in
     ./tmux.nix
   ];
 
+  xdg.configFile."ghostty/config".source = ./ghostty/config;
+
   home.activation.initializeRustToolchain = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     if [[ -z "''${DRY_RUN:-}" ]] && ! ${rustup} default >/dev/null 2>&1; then
       run ${rustup} default stable

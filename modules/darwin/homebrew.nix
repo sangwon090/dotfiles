@@ -32,6 +32,7 @@
       "claude-code"
       "discord"
       "firefox"
+      "ghostty"
       "google-chrome"
       "hop"
       "microsoft-excel"
