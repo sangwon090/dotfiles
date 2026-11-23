@@ -28,7 +28,6 @@
     ];
 
     casks = [
-      "burp-suite"
       "chatgpt"
       "claude-code"
       "discord"
@@ -38,12 +37,8 @@
       "microsoft-excel"
       "microsoft-powerpoint"
       "microsoft-word"
-      "moonlight"
-      "openclaw"
       "openusage"
-      "postman"
       "raycast"
-      "sage"
       "slack"
       "tailscale-app"
       "ungoogled-chromium"
