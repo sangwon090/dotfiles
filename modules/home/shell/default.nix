@@ -9,7 +9,7 @@
     enable = true;
     interactiveShellInit = ''
       set -g fish_greeting
-      alias vi vim
+      alias vi 'command vim'
       alias vim nvim
     '';
 
